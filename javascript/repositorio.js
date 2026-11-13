@@ -640,6 +640,7 @@ function normalizeBanca(raw) {
     convidado1: get("Convidado(a) 1", "Convidado 1", "Convidado(a)", "Convidado"),
     convidado2: get("Convidado(a) 2", "Convidado 2"),
     convidado3: get("Convidado(a) 3", "Convidado 3"),
+    sala: get("Sala", "sala"),
   };
 }
 
@@ -707,7 +708,7 @@ function renderBancas(bancas) {
       const groupRow = document.createElement("tr");
       groupRow.className = "bancas-group-row";
       const groupCell = document.createElement("td");
-      groupCell.colSpan = 9;
+      groupCell.colSpan = 10;
       groupCell.textContent = groupLabel;
       groupRow.appendChild(groupCell);
       container.appendChild(groupRow);
@@ -743,6 +744,10 @@ function renderBancas(bancas) {
     const convidado3Td = document.createElement("td");
     convidado3Td.textContent = b.convidado3 || "";
     row.appendChild(convidado3Td);
+
+    const salaTd = document.createElement("td");
+    salaTd.textContent = b.sala || "";
+    row.appendChild(salaTd);
 
     container.appendChild(row);
   }
